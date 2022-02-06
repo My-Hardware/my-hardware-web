@@ -83,8 +83,8 @@ const Main = () => {
             <Route path="/inventory"><InventoryPage /></Route>
             <Route path="/"><HomePage /></Route>
           </Switch>
+          <Footer style={{ textAlign: 'center' }}>{`My Hardware ©${new Date().getFullYear()} Created by Epic`}</Footer>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>{`My Hardware ©${new Date().getFullYear()} Created by Epic`}</Footer>
       </Layout>
     </Layout>
   );
