@@ -1,22 +1,15 @@
-pipeline { 
-  agent any 
-  stages { 
-    stage ('Build') { 
-      stages {
-        sh echo 'test'
+pipeline {
+  agent {
+    docker {
+      image 'node:6-alpine'
+      args '-p 3000:3000'
+    }
+  }
+  stages {
+    stage('Build') {
+      steps {
+        sh 'node --version'
       }
-    }
-    stage ('Test') { 
-    
-    }
-    stage ('QA') { 
-    
-    }
-    stage ('Deploy') { 
-    
-    }
-    stage ('Monitor') { 
-
-    }
-  }           
+    }     
+  }
 }
