@@ -1,6 +1,13 @@
 pipeline {
 
   agent any
+  
+  parameters {
+    choice(name: 'Environment', choices: [dev, qa, master], description: 'Environment you are building to ')
+    booleanParam(name: 'Is CORE_DB_VERSION version constant up to date?', defaultValue: false, description: null)
+    booleanParam(name: 'Is release notes updated', defaultValue: false, description: null)
+    booleanParam(name: 'Is necessary core-data-db migrations done?', defaultValue: false, description: null)
+  }
 
   stages {
     stage("Build") {
